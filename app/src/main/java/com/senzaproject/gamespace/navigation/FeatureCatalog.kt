@@ -10,6 +10,8 @@ data class FeatureEntry(
     @StringRes val descRes: Int?,
     val status: FeatureStatus,
     val phase: Int = 0,
+    /** True when the route needs a game package name, so it cannot be opened from a plain list. */
+    val requiresArgument: Boolean = false,
 )
 
 /**
@@ -20,9 +22,9 @@ object FeatureCatalog {
     val entries: List<FeatureEntry> = listOf(
         FeatureEntry(Routes.PermissionSetup, R.string.screen_permissions, null, FeatureStatus.IMPLEMENTED),
         FeatureEntry(Routes.DeviceMonitor, R.string.screen_device_monitor, null, FeatureStatus.PARTIAL, 4),
-        FeatureEntry(Routes.Library, R.string.screen_library, R.string.desc_library, FeatureStatus.PLANNED, 3),
-        FeatureEntry(Routes.GameDetails, R.string.screen_game_details, R.string.desc_game_details, FeatureStatus.PLANNED, 3),
-        FeatureEntry(Routes.PerGame, R.string.screen_per_game, R.string.desc_per_game, FeatureStatus.PLANNED, 3),
+        FeatureEntry(Routes.Library, R.string.screen_library, null, FeatureStatus.IMPLEMENTED),
+        FeatureEntry(Routes.GameDetails, R.string.screen_game_details, null, FeatureStatus.IMPLEMENTED, requiresArgument = true),
+        FeatureEntry(Routes.PerGame, R.string.screen_per_game, null, FeatureStatus.PARTIAL, requiresArgument = true),
         FeatureEntry(Routes.GameMode, R.string.screen_game_mode, R.string.desc_game_mode, FeatureStatus.PLANNED, 5),
         FeatureEntry(Routes.FpsMonitor, R.string.screen_fps_monitor, R.string.desc_fps_monitor, FeatureStatus.PLANNED, 4),
         FeatureEntry(Routes.Network, R.string.screen_network, R.string.desc_network, FeatureStatus.PLANNED, 4),

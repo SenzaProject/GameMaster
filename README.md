@@ -8,7 +8,7 @@ and anything not built yet is labelled with its phase.
 
 ## Status
 
-This is the **phase 1–2 build**: architecture, design system, navigation and the first working screens.
+This is the **phase 1-3 build**: architecture, design system, navigation, and the game library with per-game profiles.
 See [docs/FEATURE_STATUS.md](docs/FEATURE_STATUS.md) for the honest per-feature report.
 
 ## Requirements
@@ -31,11 +31,12 @@ Never commit keystores or passwords.
 ## Publishing to GitHub (from Termux)
 
 ```bash
-git init && git add . && git commit -m "Phase 1-2 scaffold"
-git branch -M main
-git remote add origin https://github.com/SenzaProject/SenzaGameSpace.git
-git push -u origin main
+git add -A
+git commit -m "Phase 3: game library, Room database, per-game profiles"
+git push
 ```
+
+Sign in with a GitHub personal access token or `gh auth login`. Never commit tokens or keystores.
 
 ## Releases
 

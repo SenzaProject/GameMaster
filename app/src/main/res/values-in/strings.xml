@@ -42,15 +42,12 @@
     <string name="planned_status_body">Layar ini baru berupa tujuan navigasi. Tidak ada yang disimulasikan. Akan dibuat pada fase %1$d.</string>
     <string name="planned_scope_title">Cakupan rencana</string>
 
-    <string name="desc_library">Mendeteksi game terpasang, mencari, mengurutkan dan menyaringnya, menambah game manual, menyembunyikan tanpa mencopot, serta membukanya.</string>
-    <string name="desc_game_details">Menampilkan info satu game, sesi terakhir, dan pintasan ke pengaturannya sendiri.</string>
     <string name="desc_game_mode">Mode Seimbang, Performa, Hemat baterai, dan Kustom dengan pengaturan yang diterapkan saat game dimulai dan dikembalikan saat selesai.</string>
     <string name="desc_fps_monitor">Riwayat frame rate dan frame time dengan rata-rata, minimum, dan maksimum, hanya lewat metode yang didukung Android. Metode yang butuh root akan diberi label.</string>
     <string name="desc_toolbox">Kontrol Jangan Ganggu, kecerahan dan volume, pintasan tangkapan layar dan rekam layar, timer gaming, serta statistik sesi.</string>
     <string name="desc_floating_panel">Overlay yang bisa digeser dengan data langsung dan aksi cepat saat game berjalan. Butuh izin Tampil di atas aplikasi lain.</string>
     <string name="desc_network">Jenis koneksi, detail Wi-Fi, sinyal, uji latensi dan ping, serta riwayat kecepatan. Latensi terukur tidak sama dengan ping dalam game, dan aplikasi akan menyebutkannya.</string>
     <string name="desc_statistics">Total waktu bermain, sesi, game terbanyak, serta aktivitas harian, mingguan, dan bulanan, disimpan di perangkat ini.</string>
-    <string name="desc_per_game">Profil terpisah untuk tiap game: mode pilihan, kecerahan, Jangan Ganggu, overlay, dan tata letak monitor.</string>
 
     <string name="greeting_morning">Selamat pagi</string>
     <string name="greeting_afternoon">Selamat siang</string>
@@ -109,5 +106,76 @@
     <string name="about_package">Paket: %1$s</string>
     <string name="about_description">Asisten gaming yang menampilkan data perangkat nyata dan mengatur tiap game sesuai caramu.</string>
     <string name="about_limits_title">Keterbatasan yang diketahui</string>
-    <string name="about_limits_body">Ini build awal. Pustaka game, mode game, monitor FPS, overlay, alat jaringan, dan statistik belum dibuat. Android tidak mengizinkan aplikasi biasa mengubah frekuensi CPU atau GPU, jadi Game Master tidak akan mengklaim hal itu.</string>
+    <string name="about_limits_body">Ini build awal. Pustaka game dan profil per game sudah ada; mode game, monitor FPS, overlay, alat jaringan, dan statistik belum dibuat. Profil tersimpan tetapi belum diterapkan ke game. Android tidak mengizinkan aplikasi biasa mengubah frekuensi CPU atau GPU, jadi Game Master tidak akan mengklaim hal itu.</string>
+
+    <string name="action_launch">Buka</string>
+    <string name="action_cancel">Batal</string>
+
+    <string name="library_search_hint">Cari game</string>
+    <string name="library_rescan">Pindai ulang aplikasi terpasang</string>
+    <string name="library_add">Tambah game manual</string>
+    <string name="library_sort_by">Urutkan: %1$s</string>
+    <string name="library_empty">Belum ada game yang terdeteksi. Game Master mendeteksi aplikasi yang menyatakan dirinya game. Kalau gamemu belum muncul, ketuk + untuk menambahkannya manual.</string>
+    <string name="library_no_results">Tidak ada game yang cocok dengan pencarian atau filter.</string>
+    <string name="library_last_launched">Terakhir dibuka %1$s</string>
+    <string name="library_never_launched">Belum dibuka lewat Game Master</string>
+    <string name="filter_all">Semua</string>
+    <string name="filter_auto">Terdeteksi</string>
+    <string name="filter_manual">Ditambah olehmu</string>
+    <string name="filter_played">Pernah dibuka</string>
+    <string name="sort_name">Nama</string>
+    <string name="sort_recent">Terakhir dibuka</string>
+    <string name="sort_most_launched">Paling sering dibuka</string>
+    <string name="sort_added">Terbaru ditambahkan</string>
+    <string name="add_dialog_title">Tambah game</string>
+    <string name="add_dialog_empty">Tidak ada aplikasi lain yang bisa dibuka.</string>
+    <string name="msg_scan_done">Pemindaian selesai: %1$d ditambah, %2$d dihapus.</string>
+    <string name="msg_scan_failed">Pemindaian gagal: %1$s</string>
+    <string name="msg_game_added">%1$s ditambahkan ke pustaka.</string>
+    <string name="msg_not_launchable">%1$s tidak bisa dibuka. Mungkin dinonaktifkan atau sudah dicopot.</string>
+    <string name="msg_launch_failed">Gagal membuka %1$s: %2$s</string>
+    <string name="source_auto">Terdeteksi otomatis</string>
+    <string name="source_manual">Ditambah olehmu</string>
+
+    <string name="details_not_found">Game ini sudah tidak ada di pustaka.</string>
+    <string name="details_info">Info game</string>
+    <string name="details_source">Sumber</string>
+    <string name="details_added">Ditambahkan ke pustaka</string>
+    <string name="details_launch_count">Dibuka lewat Game Master</string>
+    <string name="details_last_launched">Terakhir dibuka</string>
+    <string name="details_version">Versi</string>
+    <string name="details_installed">Dipasang pada</string>
+    <string name="details_updated">Terakhir diperbarui</string>
+    <string name="details_launch_note">Jumlah buka hanya mencakup pembukaan lewat Game Master. Pencatatan waktu bermain lengkap hadir di fase 5.</string>
+    <string name="details_profile">Profil game</string>
+    <string name="details_remove">Hapus dari pustaka</string>
+    <string name="details_remove_title">Hapus %1$s?</string>
+    <string name="details_remove_body">Game tetap terpasang. Hanya entrinya di Game Master yang disembunyikan, dan profilnya disimpan bila kamu menambahkannya lagi.</string>
+    <string name="details_remove_confirm">Hapus</string>
+
+    <string name="mode_balanced">Seimbang</string>
+    <string name="mode_performance">Performa</string>
+    <string name="mode_battery_saver">Hemat baterai</string>
+    <string name="mode_custom">Kustom</string>
+    <string name="layout_minimal">Minimal</string>
+    <string name="layout_compact">Ringkas</string>
+    <string name="layout_detailed">Detail</string>
+    <string name="pg_phase_note">Pilihanmu disimpan di perangkat ini. Belum diterapkan ke game: penerapan otomatis saat game dimulai hadir di fase 5.</string>
+    <string name="pg_mode">Mode pilihan</string>
+    <string name="pg_mode_default">Gunakan bawaan</string>
+    <string name="pg_brightness">Kecerahan</string>
+    <string name="pg_brightness_desc">Atur tingkat kecerahan untuk game ini.</string>
+    <string name="pg_brightness_unchanged">Tidak diubah</string>
+    <string name="pg_dnd">Jangan Ganggu</string>
+    <string name="pg_dnd_desc">Bungkam gangguan saat game ini berjalan.</string>
+    <string name="pg_overlay">Panel melayang</string>
+    <string name="pg_overlay_desc">Tampilkan panel dalam game untuk game ini.</string>
+    <string name="pg_layout">Tata letak monitor</string>
+    <string name="pg_track">Catat sesi bermain</string>
+    <string name="pg_track_desc">Catat waktu bermain game ini setelah pelacakan sesi dibuat.</string>
+    <string name="pg_reset">Kembalikan ke bawaan</string>
+
+    <string name="home_games">Game</string>
+    <string name="home_games_count">Game di pustaka</string>
+    <string name="home_recent">Terakhir dibuka</string>
 </resources>

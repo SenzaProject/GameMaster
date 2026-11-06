@@ -22,6 +22,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -31,6 +33,9 @@ import com.senzaproject.gamespace.core.settings.SettingsViewModel
 import com.senzaproject.gamespace.feature.about.AboutScreen
 import com.senzaproject.gamespace.feature.devicemonitor.DeviceMonitorScreen
 import com.senzaproject.gamespace.feature.home.HomeScreen
+import com.senzaproject.gamespace.feature.library.GameDetailsScreen
+import com.senzaproject.gamespace.feature.library.LibraryScreen
+import com.senzaproject.gamespace.feature.library.PerGameSettingsScreen
 import com.senzaproject.gamespace.feature.onboarding.OnboardingScreen
 import com.senzaproject.gamespace.feature.permissions.PermissionSetupScreen
 import com.senzaproject.gamespace.feature.planned.PlannedFeatureScreen
@@ -124,7 +129,28 @@ private fun GameMasterNavHost(navController: NavHostController, modifier: Modifi
             )
         }
         composable(Routes.Home) {
-            HomeScreen(onOpen = { route -> navController.navigate(route) { launchSingleTop = true } })
+            HomeScreen(
+                onOpen = { route -> navController.navigate(route) { launchSingleTop = true } },
+                onOpenGame = { pkg -> navController.navigate(Routes.gameDetails(pkg)) { launchSingleTop = true } },
+            )
+        }
+        composable(Routes.Library) {
+            LibraryScreen(onOpenGame = { pkg -> navController.navigate(Routes.gameDetails(pkg)) })
+        }
+        composable(
+            route = Routes.GameDetails,
+            arguments = listOf(navArgument(Routes.ArgPackage) { type = NavType.StringType }),
+        ) {
+            GameDetailsScreen(
+                onBack = { navController.popBackStack() },
+                onOpenSettings = { pkg -> navController.navigate(Routes.perGame(pkg)) },
+            )
+        }
+        composable(
+            route = Routes.PerGame,
+            arguments = listOf(navArgument(Routes.ArgPackage) { type = NavType.StringType }),
+        ) {
+            PerGameSettingsScreen(onBack = { navController.popBackStack() })
         }
         composable(Routes.DeviceMonitor) {
             DeviceMonitorScreen(onBack = { navController.popBackStack() })
