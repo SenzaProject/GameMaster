@@ -40,3 +40,16 @@ Room Flow -> GameRepository -> ViewModel (applyQuery, pure) -> Compose
 - "Remove from library" sets `hidden = true`, so a rescan does not bring the game back and its profile survives.
 - An empty scan result is treated as a failed scan and never deletes games.
 - There is no destructive migration fallback. A schema change needs a real migration.
+
+## Phase 4 monitoring
+
+```
+Android APIs / files -> *Repository (Flow, flowOn IO) -> ViewModel (stateIn WhileSubscribed) -> Compose
+```
+
+- `core/monitoring/MonitoringMath.kt` and `FpsMath.kt` are pure Kotlin (parsers, percentages, ping statistics, frame windows) and are unit-tested on the JVM.
+- Each reading has its own repository and flow, so a screen only pays for what it shows. Sampling stops 5 seconds after the screen leaves the foreground.
+- `historyOf` keeps a bounded list of recent values for graphs. History is in memory only.
+- `ShellRunner` is the single place a command is executed. `ProcessShellRunner` runs as the app's own user. A root runner can replace it in phase 6.
+- `SurfaceFlingerSampler` depends only on `ShellRunner`, so it is tested with a fake.
+- FPS and latency measurements stop when the screen is left or the app goes to the background.

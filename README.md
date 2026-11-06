@@ -8,7 +8,7 @@ and anything not built yet is labelled with its phase.
 
 ## Status
 
-This is the **phase 1-3 build**: architecture, design system, navigation, and the game library with per-game profiles.
+This is the **phase 1-4 build**: architecture, design system, navigation, the game library with per-game profiles, and monitoring (device, network, FPS).
 See [docs/FEATURE_STATUS.md](docs/FEATURE_STATUS.md) for the honest per-feature report.
 
 ## Requirements
@@ -32,7 +32,7 @@ Never commit keystores or passwords.
 
 ```bash
 git add -A
-git commit -m "Phase 3: game library, Room database, per-game profiles"
+git commit -m "Phase 4: device, network and FPS monitoring"
 git push
 ```
 

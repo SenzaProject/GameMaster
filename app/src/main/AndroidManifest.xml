@@ -2,13 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Only permissions needed by the Permission Setup screen are declared in this phase. -->
+    <!-- Permissions used by the Permission Setup screen. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Phase 4 monitoring. INTERNET: latency test (TCP connect time). ACCESS_WIFI_STATE: Wi-Fi link speed and frequency. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--
+      Optional, never requested at runtime. Android does not let users grant DUMP in a dialog.
+      It is granted once over ADB and only enables the experimental per-game FPS source.
+    -->
+    <uses-permission
+        android:name="android.permission.DUMP"
         tools:ignore="ProtectedPermissions" />
 
     <!-- Package visibility (Android 11+): see launchable apps without QUERY_ALL_PACKAGES. -->

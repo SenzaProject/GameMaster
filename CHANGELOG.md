@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (unreleased)
+- Device monitor rebuilt with CPU, GPU, memory (with history graph), storage, battery and thermal sections. Every row is a real reading or "not available".
+- Network assistant: connection details, Wi-Fi link speed, signal, device-wide traffic rate and history, TCP-connect latency test with jitter and lost attempts.
+- FPS monitor: display test (Choreographer) and an experimental per-game source (SurfaceFlinger, needs DUMP granted over ADB).
+- Native Compose sparkline and meter components.
+- New permissions: INTERNET, ACCESS_WIFI_STATE, DUMP (declared only, granted over ADB).
+- Unit tests for the monitoring maths, FPS maths and the SurfaceFlinger sampler.
+
 ## 0.2.0 (unreleased)
 - Room database with games and per-game profiles.
 - Game detection through PackageManager, with Android 11+ package visibility handled by a `<queries>` entry.

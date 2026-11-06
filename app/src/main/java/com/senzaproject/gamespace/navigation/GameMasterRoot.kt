@@ -32,10 +32,12 @@ import com.senzaproject.gamespace.R
 import com.senzaproject.gamespace.core.settings.SettingsViewModel
 import com.senzaproject.gamespace.feature.about.AboutScreen
 import com.senzaproject.gamespace.feature.devicemonitor.DeviceMonitorScreen
+import com.senzaproject.gamespace.feature.fps.FpsMonitorScreen
 import com.senzaproject.gamespace.feature.home.HomeScreen
 import com.senzaproject.gamespace.feature.library.GameDetailsScreen
 import com.senzaproject.gamespace.feature.library.LibraryScreen
 import com.senzaproject.gamespace.feature.library.PerGameSettingsScreen
+import com.senzaproject.gamespace.feature.network.NetworkScreen
 import com.senzaproject.gamespace.feature.onboarding.OnboardingScreen
 import com.senzaproject.gamespace.feature.permissions.PermissionSetupScreen
 import com.senzaproject.gamespace.feature.planned.PlannedFeatureScreen
@@ -154,6 +156,12 @@ private fun GameMasterNavHost(navController: NavHostController, modifier: Modifi
         }
         composable(Routes.DeviceMonitor) {
             DeviceMonitorScreen(onBack = { navController.popBackStack() })
+        }
+        composable(Routes.FpsMonitor) {
+            FpsMonitorScreen(onBack = { navController.popBackStack() })
+        }
+        composable(Routes.Network) {
+            NetworkScreen(onBack = { navController.popBackStack() })
         }
         composable(Routes.Settings) {
             SettingsScreen(

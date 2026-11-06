@@ -25,6 +25,11 @@ data class BatterySnapshot(
     val charging: Boolean,
     val temperatureCelsius: Float?,
     val voltageMillivolts: Int?,
+    val powerSource: PowerSource = PowerSource.NONE,
+    val health: BatteryHealth = BatteryHealth.UNKNOWN,
+    val technology: String? = null,
+    /** Instantaneous current in microamps as the device reports it. The sign convention differs between devices. */
+    val currentMicroAmps: Int? = null,
 )
 
 data class MemorySnapshot(val totalBytes: Long, val availableBytes: Long)
@@ -82,8 +87,18 @@ class DeviceInfoRepository @Inject constructor(
             // Android reports temperature in tenths of a degree Celsius.
             temperatureCelsius = if (temperature == Int.MIN_VALUE) null else temperature / 10f,
             voltageMillivolts = if (voltage == Int.MIN_VALUE || voltage <= 0) null else voltage,
+            powerSource = powerSourceOf(intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)),
+            health = batteryHealthOf(intent.getIntExtra(BatteryManager.EXTRA_HEALTH, -1)),
+            technology = intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY)?.takeIf { it.isNotBlank() },
+            currentMicroAmps = readBatteryCurrent(),
         )
     }
+
+    private fun readBatteryCurrent(): Int? = runCatching {
+        val manager = context.getSystemService(BatteryManager::class.java)
+        // Devices that do not support the property return Integer.MIN_VALUE.
+        manager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW).takeIf { it != Int.MIN_VALUE }
+    }.getOrNull()
 
     private fun readMemory(): MemorySnapshot? = runCatching {
         val manager = context.getSystemService(ActivityManager::class.java)
