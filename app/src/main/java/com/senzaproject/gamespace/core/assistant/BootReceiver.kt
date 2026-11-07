@@ -5,22 +5,31 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import com.senzaproject.gamespace.feature.floating.FloatingPanelService
-import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.EntryPointAccessors
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-/** Restarts the assistant after a reboot, but only when the user asked for that and left it switched on. */
-@AndroidEntryPoint
+@EntryPoint
+@InstallIn(SingletonComponent::class)
+interface BootEntryPoint {
+    fun prefs(): AssistantPrefsRepository
+}
+
+/**
+ * Restarts the assistant after a reboot, but only when the user asked for that and left it switched on.
+ * Uses a Hilt entry point instead of @AndroidEntryPoint: in Kotlin that annotation needs a super.onReceive call
+ * that does not compile against the abstract BroadcastReceiver.
+ */
 class BootReceiver : BroadcastReceiver() {
-    @Inject lateinit var prefs: AssistantPrefsRepository
-
     override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
         if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
+        val prefs = EntryPointAccessors.fromApplication(context.applicationContext, BootEntryPoint::class.java).prefs()
         val pending = goAsync()
         CoroutineScope(SupervisorJob() + Dispatchers.Default).launch {
             try {
