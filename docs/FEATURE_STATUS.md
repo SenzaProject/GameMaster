@@ -73,7 +73,7 @@ re-calculation of the numbers used in the unit tests. The build is verified by G
 
 - No mode changes CPU or GPU speed, and none claims to. Modes remove interruptions and manage brightness, volume and screen timeout.
 - Brightness and touch vibration need "Modify system settings". Do Not Disturb needs Do Not Disturb access. If a permission is missing, that one setting is skipped and the panel says so.
-- In "Only in games" mode the handle appears for games whose per-game "Floating panel" switch is on. Without Usage access the handle stays visible all the time and no sessions run.
+- In "Only in games" mode the handle appears for every library game unless its per-game "Floating panel" switch was turned off. Without Usage access the handle stays visible all the time and no sessions run.
 - The screenshot shortcut works through an accessibility service that only presses the system screenshot action. Android 13+ can block it for apps installed outside a store until "Allow restricted settings" is chosen in App info.
 - Screen recording has no sound and Android asks for confirmation every time. The handle or an open panel may appear in the video.
 - The latency figure is TCP connect time to 1.1.1.1:443, not in-game ping.

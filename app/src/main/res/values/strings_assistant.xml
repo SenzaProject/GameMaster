@@ -106,7 +106,7 @@
     <string name="fp_status_stopped_short">Stopped</string>
     <string name="fp_switch_title">Game assistant</string>
     <string name="fp_switch_desc">Shows a small handle on the screen edge and runs your game profiles while a game is open.</string>
-    <string name="fp_games_hint">In the \"Only in games\" setting the handle appears for games that have Floating panel switched on in their own settings (Library, open a game, Settings).</string>
+    <string name="fp_games_hint">In the \"Only in games\" setting the handle appears while a game from your library is open. You can turn it off for one game in that game\'s settings. Games opened before the assistant was started appear within a few seconds.</string>
     <string name="fp_need_overlay">Allow display over other apps first. Without it the panel cannot be shown.</string>
     <string name="fp_no_usage_warning">Without Usage access Game Master cannot tell when a game is open. The handle stays visible all the time and no sessions or per-game profiles run.</string>
     <string name="fp_active_game">Now: %1$s · %2$s</string>
@@ -149,7 +149,7 @@
     <string name="pe_drag_handle">Drag to reorder</string>
     <string name="pe_visibility">Show the handle</string>
     <string name="pe_vis_always">Always</string>
-    <string name="pe_vis_games">Only in games with the panel on</string>
+    <string name="pe_vis_games">Only in games</string>
     <string name="pe_collapse_after">Close after an action</string>
     <string name="pe_collapse_after_desc">Closes the panel after you open an app or a shortcut so it does not cover the game.</string>
     <string name="dk_intro">Apps here appear in the Dock tab of the panel so you can open them without leaving the game for the home screen.</string>

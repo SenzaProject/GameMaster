@@ -106,7 +106,7 @@
     <string name="fp_status_stopped_short">Berhenti</string>
     <string name="fp_switch_title">Asisten game</string>
     <string name="fp_switch_desc">Menampilkan pegangan kecil di tepi layar dan menjalankan profil game saat game dibuka.</string>
-    <string name="fp_games_hint">Pada pengaturan \"Hanya di game\", pegangan muncul untuk game yang Panel melayangnya diaktifkan di pengaturan game itu sendiri (Pustaka, buka game, Pengaturan).</string>
+    <string name="fp_games_hint">Pada pengaturan \"Hanya di game\", pegangan muncul saat game dari pustakamu terbuka. Kamu bisa mematikannya untuk satu game di pengaturan game itu. Game yang sudah terbuka sebelum asisten dinyalakan muncul dalam beberapa detik.</string>
     <string name="fp_need_overlay">Izinkan tampil di atas aplikasi lain dulu. Tanpa itu panel tidak bisa ditampilkan.</string>
     <string name="fp_no_usage_warning">Tanpa Akses penggunaan, Game Master tidak tahu kapan game dibuka. Pegangan selalu terlihat dan sesi serta profil per game tidak berjalan.</string>
     <string name="fp_active_game">Kini: %1$s · %2$s</string>
@@ -149,7 +149,7 @@
     <string name="pe_drag_handle">Seret untuk mengurutkan</string>
     <string name="pe_visibility">Tampilkan pegangan</string>
     <string name="pe_vis_always">Selalu</string>
-    <string name="pe_vis_games">Hanya di game dengan panel aktif</string>
+    <string name="pe_vis_games">Hanya di game</string>
     <string name="pe_collapse_after">Tutup setelah aksi</string>
     <string name="pe_collapse_after_desc">Menutup panel setelah kamu membuka aplikasi atau pintasan agar tidak menutupi game.</string>
     <string name="dk_intro">Aplikasi di sini muncul di tab Dock pada panel sehingga bisa dibuka tanpa keluar ke layar utama.</string>

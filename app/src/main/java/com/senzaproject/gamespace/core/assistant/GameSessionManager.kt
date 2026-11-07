@@ -114,7 +114,7 @@ class GameSessionManager @Inject constructor(
         lastHeartbeat = at
         val effective = effectiveFor(mode, profile)
         val applied = applyAndRemember(effective)
-        _active.value = ActiveSession(packageName, label, at, mode, effective, applied, profile?.overlayEnabled == true)
+        _active.value = ActiveSession(packageName, label, at, mode, effective, applied, profile?.overlayEnabled ?: true)
     }
 
     private suspend fun end(event: SessionEvent.Ended) {

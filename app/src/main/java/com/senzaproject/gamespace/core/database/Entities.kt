@@ -39,7 +39,8 @@ data class GameProfileEntity(
     /** null = do not change brightness for this game. Valid range 1..100. */
     val brightnessPercent: Int? = null,
     val dndEnabled: Boolean = false,
-    val overlayEnabled: Boolean = false,
+    /** On by default: the floating panel shows for every game unless the player turns it off for one. */
+    val overlayEnabled: Boolean = true,
     val monitorLayout: MonitorLayout = MonitorLayout.COMPACT,
     val trackSessions: Boolean = true,
 )
